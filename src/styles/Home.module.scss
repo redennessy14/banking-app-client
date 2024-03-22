@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+.home {
+  display: flex;
+  gap: 20px;
+}
+.cardBlock {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $color-light-black;
+  width: 30%;
+  gap: 25px;
+  padding: 25px;
+  align-items: center;
+  border-radius: 30px;
+  height: 650px;
+}
+
+.button {
+  font-family: "Inter", sans-serif;
+  width: 200px;
+  padding: 10px;
+  background-color: $color-light-grey;
+  color: $color-white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
