@@ -5,12 +5,16 @@ import { fetchCards } from "../redux/slices/cards";
 import style from "../styles/Home.module.scss";
 import Balance from "../components/Balance/Balance";
 import { fetchTransactions } from "../redux/slices/transaction";
+import Transaction from "../components/Transaction/Transaction";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards);
   const userData = useSelector((state) => state.auth.data);
+  const transactions = useSelector((state) => state.transactions.items);
   const isCardsLoading = cards.status === "loading";
+  const lastSixTransactions = transactions.slice(-6);
 
   useEffect(() => {
     if (userData) {
@@ -23,7 +27,6 @@ export const Home = () => {
       cards.items.forEach((card) => {
         dispatch(fetchTransactions(card._id));
       });
-      console.log(cards.items, "cards items");
     }
   }, [cards.items]);
 
@@ -31,9 +34,9 @@ export const Home = () => {
     <div className={style.home}>
       <div className={style.cardBlock}>
         {!isCardsLoading &&
-          cards.items.map((item, index) => (
+          cards.items.map((item) => (
             <Cards
-              key={index}
+              key={item._id}
               cardType={item.cardType}
               cardNumber={item.cardNumber}
               balance={item.balance}
@@ -41,9 +44,27 @@ export const Home = () => {
               expirationDate={item.expirationDate}
             />
           ))}
-        <button className={style.button}>Создать новую карту</button>
+        <Link to="/card">
+          <button className={style.button}>Создать новую карту</button>{" "}
+        </Link>
       </div>
-      <div>
+      <div className={style.transactionBlock}>
+        <h2>История транзакций</h2>
+        {lastSixTransactions.length > 0 ? (
+          lastSixTransactions.map((transaction) => (
+            <Transaction
+              key={transaction._id}
+              senderName={transaction.senderName}
+              recipientName={transaction.recipientName}
+              amount={transaction.amount}
+              date={transaction.date}
+            />
+          ))
+        ) : (
+          <p>Нет истории транзакций</p>
+        )}
+      </div>
+      <div className={style.balance}>
         {" "}
         <Balance cards={cards.items} />
       </div>

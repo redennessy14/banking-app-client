@@ -5,6 +5,7 @@ export const fetchTransactions = createAsyncThunk(
   "cards/fetchTransactions",
   async (cardId) => {
     const { data } = await axios.get(`/transaction/${cardId}`);
+    console.log(data, "data");
     return data;
   }
 );
@@ -21,11 +22,10 @@ const transactionsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTransactions.pending, (state) => {
-        state.items = [];
         state.status = "loading";
       })
       .addCase(fetchTransactions.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items.push(...action.payload);
         state.status = "loaded";
       })
       .addCase(fetchTransactions.rejected, (state) => {
@@ -34,5 +34,4 @@ const transactionsSlice = createSlice({
       });
   },
 });
-
 export const trasactionsReducer = transactionsSlice.reducer;

@@ -1,0 +1,34 @@
+@import "./main.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 30%;
+  margin: 50px auto;
+}
+
+.cardButton {
+  @include button-md;
+  margin-top: 30px;
+}
+
+.gold {
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 188, 4),
+    rgb(213, 255, 2)
+  );
+}
+
+.standard {
+  background-image: linear-gradient(
+    to right,
+    rgb(4, 230, 255),
+    rgb(175, 2, 255)
+  );
+}
+.cardButton input[type="radio"] {
+  display: none;
+}

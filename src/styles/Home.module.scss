@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "./main.scss";
 
 .home {
   display: flex;
@@ -18,12 +18,38 @@
 }
 
 .button {
-  font-family: "Inter", sans-serif;
+  @include button-md;
   width: 200px;
-  padding: 10px;
-  background-color: $color-light-grey;
-  color: $color-white;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+}
+
+.balance {
+  width: 15%;
+  height: 150px;
+  background-color: $color-light-black;
+  padding: 25px;
+  border-radius: 30px;
+  text-align: center;
+  & > p {
+    font-size: 30px;
+    font-weight: 800;
+    background-image: linear-gradient(
+      to right,
+      rgb(4, 230, 255),
+      rgb(175, 2, 255)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.transactionBlock {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: $color-light-black;
+  padding: 25px;
+  border-radius: 30px;
+  text-align: center;
+  align-items: center;
 }

@@ -1,0 +1,27 @@
+.transaction {
+  display: flex;
+  position: relative;
+  background-color: rgb(42, 44, 50);
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 10px;
+  padding: 10px;
+}
+.sender {
+  color: red;
+}
+
+.recipient {
+  color: green;
+}
+.recipientName,
+.senderName {
+  font-weight: 600;
+}
+
+.amount {
+  position: absolute;
+  right: 10px;
+  font-weight: 800;
+  font-size: 18px;
+}

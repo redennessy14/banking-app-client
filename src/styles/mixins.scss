@@ -1,0 +1,25 @@
+@mixin button-md {
+  font-family: "Inter", sans-serif;
+  padding: 10px;
+  background-color: $color-light-grey;
+  color: $color-white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin input-auth {
+  background-color: $color-light-grey;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  color: $color-white;
+  font-size: 20px;
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $color-white;
+  }
+}

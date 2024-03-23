@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAuthMe } from "./redux/slices/auth";
+import Register from "./pages/Register/Register";
+import CardPage from "./pages/CardPage/CardPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/card" element={<CardPage />} />
       </Routes>
     </>
   );

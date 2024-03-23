@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../styles/Balance.module.scss";
+// import style from "../../styles/Balance.module.scss";
 
 const Balance = ({ cards }) => {
   const calculateTotalBalance = (cards) => {
@@ -10,10 +10,10 @@ const Balance = ({ cards }) => {
     return totalBalance.toFixed(2);
   };
   return (
-    <div className={style.balance}>
+    <>
       <h2>Общий баланс</h2>
       <p>${calculateTotalBalance(cards)}</p>
-    </div>
+    </>
   );
 };
 

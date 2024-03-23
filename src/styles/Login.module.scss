@@ -1,0 +1,28 @@
+@import "./main.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  margin: 150px auto;
+  gap: 25px;
+}
+
+.input {
+  @include input-auth;
+}
+
+.button {
+  @include button-md;
+  font-size: 20px;
+}
+
+.text {
+  font-size: 20px;
+  text-align: center;
+
+  &:visited {
+    color: $color-white;
+  }
+}

@@ -5,6 +5,7 @@ export const fetchCards = createAsyncThunk(
   "cards/fetchCards",
   async (userId) => {
     const { data } = await axios.get(`/cards/${userId}`);
+
     return data;
   }
 );
