@@ -9,7 +9,7 @@
   justify-content: center;
   flex-direction: column;
   background-color: $color-light-black;
-  width: 30%;
+  width: 25%;
   gap: 25px;
   padding: 25px;
   align-items: center;
@@ -23,14 +23,14 @@
 }
 
 .balance {
-  width: 15%;
-  height: 150px;
+  width: 30%;
+  height: 120px;
   background-color: $color-light-black;
   padding: 25px;
   border-radius: 30px;
   text-align: center;
   & > p {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 800;
     background-image: linear-gradient(
       to right,
@@ -52,4 +52,8 @@
   border-radius: 30px;
   text-align: center;
   align-items: center;
+}
+
+.dashboard {
+  width: 40%;
 }

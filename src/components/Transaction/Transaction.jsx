@@ -2,9 +2,16 @@ import React from "react";
 import style from "../../styles/Transaction.module.scss";
 import { useSelector } from "react-redux";
 
-const Transaction = ({ senderName, recipientName, amount, date }) => {
+const Transaction = ({
+  senderName,
+  recipientName,
+  amount,
+  date,
+  senderAvatar,
+  recipientAvatar,
+}) => {
   const userData = useSelector((state) => state.auth.data);
-  const isRecipient = userData.fullName === recipientName;
+  const isRecipient = userData && userData.fullName === recipientName;
   const sign = isRecipient ? "+" : "-";
 
   const formattedDate = new Date(date);
@@ -27,9 +34,20 @@ const Transaction = ({ senderName, recipientName, amount, date }) => {
       }`}
     >
       {" "}
-      {isRecipient ? <p className={style.senderName}> {senderName}</p> : ""}
+      {isRecipient ? (
+        <>
+          <img className={style.avatar} src={senderAvatar} alt="" />
+          <p className={style.senderName}> {senderName}</p>
+        </>
+      ) : (
+        ""
+      )}
       {!isRecipient ? (
-        <p className={style.recipientName}>{recipientName}</p>
+        <>
+          {" "}
+          <img className={style.avatar} src={recipientAvatar} alt="" />
+          <p className={style.recipientName}>{recipientName}</p>
+        </>
       ) : (
         ""
       )}

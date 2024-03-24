@@ -3,10 +3,11 @@ import Cards from "../components/Cards/Cards";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards } from "../redux/slices/cards";
 import style from "../styles/Home.module.scss";
-import Balance from "../components/Balance/Balance";
 import { fetchTransactions } from "../redux/slices/transaction";
-import Transaction from "../components/Transaction/Transaction";
 import { Link } from "react-router-dom";
+import MoneyTransfer from "../components/MoneyTransfer/MoneyTransfer";
+import Balance from "../components/Balance/Balance";
+import Transaction from "../components/Transaction/Transaction";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export const Home = () => {
   useEffect(() => {
     if (userData) {
       dispatch(fetchCards(userData._id));
+    } else {
+      dispatch(fetchCards());
     }
   }, [userData]);
 
@@ -28,7 +31,7 @@ export const Home = () => {
         dispatch(fetchTransactions(card._id));
       });
     }
-  }, [cards.items]);
+  }, [cards.items, userData]);
 
   return (
     <div className={style.home}>
@@ -55,7 +58,9 @@ export const Home = () => {
             <Transaction
               key={transaction._id}
               senderName={transaction.senderName}
+              senderAvatar={transaction.senderAvatar}
               recipientName={transaction.recipientName}
+              recipientAvatar={transaction.recipientAvatar}
               amount={transaction.amount}
               date={transaction.date}
             />
@@ -64,9 +69,12 @@ export const Home = () => {
           <p>Нет истории транзакций</p>
         )}
       </div>
-      <div className={style.balance}>
-        {" "}
-        <Balance cards={cards.items} />
+      <div className={style.dashboard}>
+        <div className={style.balance}>
+          {" "}
+          <Balance cards={cards.items} />
+        </div>
+        <MoneyTransfer transfers={transactions} />
       </div>
     </div>
   );

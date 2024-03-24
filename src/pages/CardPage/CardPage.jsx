@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "../../axios";
 import { useNavigate } from "react-router-dom";
 
-const CardPage = () => {
+export const CardPage = () => {
   const [selectedCard, setSelectedCard] = useState("");
   const userData = useSelector((state) => state.auth.data);
   const navigate = useNavigate();

@@ -1,12 +1,13 @@
 import React from "react";
 import style from "../../styles/Navbar.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectIsAuth } from "../../redux/slices/auth";
 
 const Navbar = () => {
   const isAuth = useSelector(selectIsAuth);
   const userData = useSelector((state) => state.auth.data);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const onClickLogout = () => {
     if (window.confirm("Вы действительно хотите выйти ?")) {

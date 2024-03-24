@@ -1,5 +1,4 @@
 import React from "react";
-// import style from "../../styles/Balance.module.scss";
 
 const Balance = ({ cards }) => {
   const calculateTotalBalance = (cards) => {
@@ -11,7 +10,7 @@ const Balance = ({ cards }) => {
   };
   return (
     <>
-      <h2>Общий баланс</h2>
+      <h3>Общий баланс</h3>
       <p>${calculateTotalBalance(cards)}</p>
     </>
   );

@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Login } from "./pages";
+import { Home, Login, Register, CardPage, TransferPage } from "./pages";
 import Navbar from "./components/Navbar/Navbar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAuthMe } from "./redux/slices/auth";
-import Register from "./pages/Register/Register";
-import CardPage from "./pages/CardPage/CardPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/card" element={<CardPage />} />
+        <Route path="/transfer" element={<TransferPage />} />
       </Routes>
     </>
   );

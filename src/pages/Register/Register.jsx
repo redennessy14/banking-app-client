@@ -5,7 +5,7 @@ import { fetchRegister, selectIsAuth } from "../../redux/slices/auth";
 import style from "../../styles/Login.module.scss";
 import { Link, Navigate } from "react-router-dom";
 
-const Register = () => {
+export const Register = () => {
   const dispatch = useDispatch();
 
   const {

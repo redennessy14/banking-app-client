@@ -1,0 +1,30 @@
+@import "./main.scss";
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -0%);
+  width: 50%;
+  text-align: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.select {
+  width: 80%;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  background-color: $color-light-grey;
+  color: $color-white;
+  appearance: none;
+  outline: none;
+}
