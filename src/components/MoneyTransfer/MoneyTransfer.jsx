@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import style from "../../styles/MoneyTransfer.module.scss";
 
 const MoneyTransfer = ({ transfers }) => {
   const chartRef = useRef(null);
@@ -104,8 +105,12 @@ const MoneyTransfer = ({ transfers }) => {
 
   return (
     <div>
-      <h2>График денежных переводов</h2>
-      <canvas ref={chartRef} width={400} height={300}></canvas>
+      <canvas
+        className={style.dashboard}
+        ref={chartRef}
+        width={400}
+        height={300}
+      ></canvas>
     </div>
   );
 };

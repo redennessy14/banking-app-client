@@ -3,6 +3,7 @@ import { fetchCards } from "../../redux/slices/cards";
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import style from "../../styles/TransferPage.module.scss";
+import MaskedInput from "react-input-mask";
 
 export const TransferPage = () => {
   const dispatch = useDispatch();
@@ -49,6 +50,14 @@ export const TransferPage = () => {
           />
         </div>
       )}
+      <>
+        {" "}
+        <MaskedInput
+          mask="9999-9999-9999-9999"
+          className={style.input}
+          placeholder="Введите номер карты"
+        />
+      </>
     </div>
   );
 };

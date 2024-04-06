@@ -8,6 +8,14 @@
   cursor: pointer;
 }
 
+@mixin items-background {
+  text-align: center;
+  align-items: center;
+  background-color: $color-light-black;
+  padding: 25px;
+  border-radius: 30px;
+}
+
 @mixin input-auth {
   background-color: $color-light-grey;
   border: none;
@@ -30,4 +38,15 @@
   height: 50px;
   object-fit: cover;
   margin: 0 10px;
+}
+
+@mixin input-transfer {
+  padding: 10px;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  background-color: $color-light-grey;
+  color: $color-white;
+  appearance: none;
+  outline: none;
 }

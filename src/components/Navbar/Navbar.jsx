@@ -3,6 +3,7 @@ import style from "../../styles/Navbar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectIsAuth } from "../../redux/slices/auth";
+import LOGO from "../../images/Logo.png";
 
 const Navbar = () => {
   const isAuth = useSelector(selectIsAuth);
@@ -17,7 +18,9 @@ const Navbar = () => {
   };
   return (
     <nav className={style.nav}>
-      <Link to="/">Banking App </Link>
+      <Link to="/">
+        <img src={LOGO} alt="" className={style.logo} />{" "}
+      </Link>
       <div className={style.user}>
         {" "}
         {!isAuth ? (

@@ -8,6 +8,9 @@
   width: 50%;
   text-align: center;
   align-items: center;
+  & > * {
+    margin-top: 50px;
+  }
 }
 
 .card {
@@ -17,14 +20,16 @@
 }
 
 .select {
-  width: 80%;
-  padding: 10px;
-  font-size: 20px;
-  border: none;
-  text-align: center;
-  border-radius: 5px;
-  background-color: $color-light-grey;
-  color: $color-white;
-  appearance: none;
-  outline: none;
+  width: 50%;
+  font-size: 25px;
+  @include input-transfer;
+}
+
+.input {
+  width: 50%;
+  font-size: 25px;
+  @include input-transfer;
+  &::placeholder {
+    color: $color-white;
+  }
 }

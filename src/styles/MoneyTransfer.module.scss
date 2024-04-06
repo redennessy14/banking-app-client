@@ -1,0 +1,6 @@
+@import "./main.scss";
+
+.dashboard {
+  margin-top: 20px;
+  @include items-background;
+}
